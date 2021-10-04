@@ -102,11 +102,22 @@ function OnboardingForm() {
             <ModalHeader>New Text Input ... </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              hello
+              <InputGroup colorScheme="cyan">
+                <InputLeftAddon children="Name"></InputLeftAddon>
+                <Input
+                  colorScheme="cyan"
+                  id="name"
+                  placeholder="Chad Chaddington"
+                  borderColor="deepskyblue"
+                  isRequired
+                  value={values.name}
+                  onChange={handleChange}
+                />
+              </InputGroup>
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="cyan" mr={3} onClick={onClose}>
+              <Button colorScheme="cyan" onClick={onClose}>
                 Add Input
               </Button>
             </ModalFooter>
