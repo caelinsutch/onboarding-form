@@ -134,7 +134,6 @@ function OnboardingForm() {
                 />
               </InputGroup>
             </ModalBody>
-
             <ModalFooter>
               <Button colorScheme="cyan" type="submit" onClick={addTextInput}>
                 Add Input
