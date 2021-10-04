@@ -37,7 +37,7 @@ function OnboardingForm() {
       <form onSubmit={handleSubmit}>
         <FormControl mt={25}>
           <InputGroup colorScheme="cyan">
-            <InputLeftAddon children=""></InputLeftAddon>
+            <InputLeftAddon children="Name"></InputLeftAddon>
             <Input
               colorScheme="cyan"
               id="name"
@@ -103,7 +103,7 @@ function OnboardingForm() {
             <ModalCloseButton />
             <ModalBody>
               <InputGroup colorScheme="cyan">
-                <InputLeftAddon children="Name"></InputLeftAddon>
+                <InputLeftAddon children="Custom"></InputLeftAddon>
                 <Input
                   colorScheme="cyan"
                   id="name"
