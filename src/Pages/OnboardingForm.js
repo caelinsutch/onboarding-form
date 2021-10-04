@@ -107,7 +107,7 @@ function OnboardingForm() {
                 <Input
                   colorScheme="cyan"
                   id="name"
-                  placeholder="Chad Chaddington"
+                  placeholder="textInputOne"
                   borderColor="deepskyblue"
                   isRequired
                   value={values.name}
