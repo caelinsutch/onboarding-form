@@ -19,7 +19,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import "./OnboardingForm.css";
-import React from "react";
+import React, { useState } from "react";
 import useForm from "../utils/useForm";
 import { useDisclosure } from "@chakra-ui/react";
 
@@ -28,8 +28,15 @@ function OnboardingForm() {
     console.log(values);
   };
   const [values, handleChange, handleSubmit] = useForm(register);
-
+  const [textInputs, setTextInputs] = useState([]);
+  const [textInputName, setTextInputName] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  function addTextInput() {
+    console.log("hi");
+    setTextInputs((oldArray) => [...oldArray, textInputName]);
+    onClose();
+  }
 
   return (
     <Container mt="20vh">
@@ -37,7 +44,7 @@ function OnboardingForm() {
       <form onSubmit={handleSubmit}>
         <FormControl mt={25}>
           <InputGroup colorScheme="cyan">
-            <InputLeftAddon children="Name"></InputLeftAddon>
+            <InputLeftAddon>Name</InputLeftAddon>
             <Input
               colorScheme="cyan"
               id="name"
@@ -88,6 +95,19 @@ function OnboardingForm() {
             <option>Senior</option>
           </Select>
         </FormControl>
+        {textInputs.map((textInput) => (
+          <InputGroup colorScheme="cyan" mt={4}>
+            <InputLeftAddon>{textInput}</InputLeftAddon>
+            <Input
+              colorScheme="cyan"
+              id={textInput}
+              borderColor="deepskyblue"
+              isRequired
+              value={values.textInput}
+              onChange={handleChange}
+            />
+          </InputGroup>
+        ))}
         <ButtonGroup direction="row">
           <Button mt={4} colorScheme="cyan" type="submit">
             Submit
@@ -103,21 +123,20 @@ function OnboardingForm() {
             <ModalCloseButton />
             <ModalBody>
               <InputGroup colorScheme="cyan">
-                <InputLeftAddon children="Custom"></InputLeftAddon>
+                <InputLeftAddon>Name</InputLeftAddon>
                 <Input
                   colorScheme="cyan"
-                  id="name"
+                  id="new-name"
                   placeholder="textInputOne"
                   borderColor="deepskyblue"
                   isRequired
-                  value={values.name}
-                  onChange={handleChange}
+                  onChange={(e) => setTextInputName(e.target.value)}
                 />
               </InputGroup>
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="cyan" onClick={onClose}>
+              <Button colorScheme="cyan" type="submit" onClick={addTextInput}>
                 Add Input
               </Button>
             </ModalFooter>
