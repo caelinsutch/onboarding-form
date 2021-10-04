@@ -37,7 +37,7 @@ function OnboardingForm() {
       <form onSubmit={handleSubmit}>
         <FormControl mt={25}>
           <InputGroup colorScheme="cyan">
-            <InputLeftAddon children="Name"></InputLeftAddon>
+            <InputLeftAddon children=""></InputLeftAddon>
             <Input
               colorScheme="cyan"
               id="name"
